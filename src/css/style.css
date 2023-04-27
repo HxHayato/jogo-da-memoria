@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-color: #f9f9f9;
+    --carta-color: #fa8128;
+    --cor-preto: #212121;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    padding: 20px;
+    background-color: #212121b3;
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 5px 1px #212121;
+    gap: 5px;
+    transition: all .40s ease;
+}
+
+.container-informacoes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-informacoes h1 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.move-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.container-cartas {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: all .10s ease;
+}
+
+.impede-jogo {
+    background-color: #212121f3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.pRes, .parabens {
+    color: var(--bg-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.estatistica {
+    color: var(--bg-color);
+    font-size: 1rem;
+    max-width: 80%;
+    text-align: center;
+}
+
+.impede-jogo.ativo {
+    display: none;
+}
+
+.botao-start {
+    padding: 0 20px;
+    background-color: var(--carta-color);
+    color: var(--bg-color);
+    min-width: 200px;
+    height: 40px;
+    font-size: 0.925rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .40s ease;
+}
+
+.botao-start:hover {
+    background-color: transparent;
+    border: 2px solid var(--carta-color);
+}
+
+.carta {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    transition: all .8s ease;
+    cursor: pointer;
+}
+
+.carta img {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    border: 2px solid var(--cor-preto);
+    border-radius: 5px;
+}
+
+.front {
+    background-color: var(--carta-color);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+@media Screen and (max-width: 570px) {
+    .container {
+        width: 100vw;
+        min-height: 100vh;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .container-cartas {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, minmax(125px, 1fr));
+    }
+
+    .botao-start {
+        min-width: 50vw;
+    }
+}
+
+@media Screen and (max-width: 370px) {
+
+}
